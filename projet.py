@@ -1,6 +1,14 @@
 import keyboard, platform, os
 
 
+
+#fonction de debug
+def dump(var):
+    print("--------------")
+    print(f"{type(var)} --> {var}")
+    print("--------------")
+    exit()
+
 #detecte quel os est utilisé
 def os_detect():
     os_name = platform.system()
@@ -45,6 +53,7 @@ def rec_key():
     while i:
         #enregistre les touches du clavier
             key = keyboard.read_event()
+            #evite qu'une touche entré soit dupliqué deux fois (pression, elevation)
             if key.event_type == keyboard.KEY_DOWN:
                 if key.name == 'space':
                     print(" ")
@@ -61,3 +70,4 @@ def rec_key():
 
 
 rec_key()
+
